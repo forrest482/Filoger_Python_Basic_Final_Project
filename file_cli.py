@@ -69,3 +69,17 @@ def move(src, dest):
         return f"Moved from {src} to {dest}", None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def find_files(start_path, pattern):
+    try:
+        matches = []
+        for root, dirs, files in os.walk(start_path):
+            for file in files:
+                if pattern in file:
+                    matches.append(os.path.join(root, file))
+        return matches, None
+    except Exception as e:
+        return None, str(e)
