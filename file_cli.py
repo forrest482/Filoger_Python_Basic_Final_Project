@@ -164,3 +164,43 @@ def setup_parser():
     cat_parser.add_argument("file_path", help="File path to display")
 
     return parser
+
+# -----------------------------------------------------
+
+# --- main ---
+
+
+command_functions = {
+    "ls": list_directory,
+    "cd": change_directory,
+    "mkdir": make_directory,
+    "rmdir": remove_directory,
+    "rm": remove_file,
+    "cp": copy,
+    "mv": move,
+    "find": find_files,
+    "cat": cat
+}
+
+parser = setup_parser()
+args = parser.parse_args()
+command = args.command
+
+if command:
+    command_args = vars(args)
+    del command_args["command"]
+    if command in command_functions:
+        result, error = command_functions[command](**command_args)
+        if error:
+            print(f"Error: {error}")
+            log_command(command, command_args, "Failed", error)
+        else:
+            if command == "ls":
+                print("\n".join(result))
+            else:
+                print(result)
+            log_command(command, command_args, "Success")
+    else:
+        print(f"Unknown command: {command}")
+else:
+    parser.print_help()
