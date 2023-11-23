@@ -1,0 +1,6 @@
+{"time": "2023-11-23 19:23:14", "command": "ls", "arguments": {"path": "."}, "outcome": "Success", "error": null}
+{"time": "2023-11-23 19:24:34", "command": "ls", "arguments": {"path": "."}, "outcome": "Success", "error": null}
+{"time": "2023-11-23 19:26:42", "command": "mkdir", "arguments": {"path": "test"}, "outcome": "Success", "error": null}
+{"time": "2023-11-23 19:27:41", "command": "cd", "arguments": {"path": "'./rr'"}, "outcome": "Failed", "error": "[WinError 3] The system cannot find the path specified: \"'./rr'\""}
+{"time": "2023-11-23 19:27:56", "command": "cd", "arguments": {"path": "/rr"}, "outcome": "Failed", "error": "[WinError 2] The system cannot find the file specified: '/rr'"}
+{"time": "2023-11-23 19:28:27", "command": "cd", "arguments": {"path": "hh"}, "outcome": "Failed", "error": "[WinError 2] The system cannot find the file specified: 'hh'"}
