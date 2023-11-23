@@ -1,4 +1,6 @@
 import os
+import datetime
+import json
 
 
 def list_directory(path='.'):
@@ -93,3 +95,18 @@ def cat(file_path):
             return file.read(), None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def log_command(command, args, outcome, error=None):
+    with open("commands.log", "a") as file:
+        time_now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_entry = {
+            "time": time_now,
+            "command": command,
+            "arguments": args,
+            "outcome": outcome,
+            "error": error
+        }
+        file.write(json.dumps(log_entry) + "\n")
