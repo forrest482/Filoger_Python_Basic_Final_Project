@@ -16,3 +16,13 @@ def change_directory(path):
         return f"Changed to directory {path}", None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def make_directory(path):
+    try:
+        os.makedirs(path, exist_ok=True)
+        return f"Directory created: {path}", None
+    except Exception as e:
+        return None, str(e)
