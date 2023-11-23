@@ -59,3 +59,13 @@ def copy(src, dest):
         return f"Copied from {src} to {dest}", None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def move(src, dest):
+    try:
+        os.rename(src, dest)
+        return f"Moved from {src} to {dest}", None
+    except Exception as e:
+        return None, str(e)
