@@ -26,3 +26,15 @@ def make_directory(path):
         return f"Directory created: {path}", None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def remove_directory(path):
+    try:
+        os.rmdir(path)
+        return f"Directory removed: {path}", None
+    except Exception as e:
+        return None, str(e)
+
+# -----------------------------------------------------
