@@ -38,3 +38,11 @@ def remove_directory(path):
         return None, str(e)
 
 # -----------------------------------------------------
+
+
+def remove_file(file_path):
+    try:
+        os.remove(file_path)
+        return f"File removed: {file_path}", None
+    except Exception as e:
+        return None, str(e)
