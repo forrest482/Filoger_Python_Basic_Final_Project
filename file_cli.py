@@ -83,3 +83,13 @@ def find_files(start_path, pattern):
         return matches, None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def cat(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.read(), None
+    except Exception as e:
+        return None, str(e)
