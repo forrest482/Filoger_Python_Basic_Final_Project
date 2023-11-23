@@ -46,3 +46,16 @@ def remove_file(file_path):
         return f"File removed: {file_path}", None
     except Exception as e:
         return None, str(e)
+
+# -----------------------------------------------------
+
+
+def copy(src, dest):
+    try:
+        if os.path.isdir(src):
+            os.system(f"cp -r {src} {dest}")
+        else:
+            os.system(f"cp {src} {dest}")
+        return f"Copied from {src} to {dest}", None
+    except Exception as e:
+        return None, str(e)
